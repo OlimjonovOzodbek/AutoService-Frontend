@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../../environments/environment.development';
+import { environment } from '../../../../../environments/environment';
 import { CreateCarCommand } from '../../../models/models/CarModels/CreateCarCommand';
 import { UpdateCarCommand } from '../../../models/models/CarModels/UpdateCarModel';
 import { ResponceModel } from '../../../models/models/ResponceModels/responcemodel';
@@ -24,12 +24,12 @@ export class CarService {
     return 
   }
 
-  delete(data: number) {
+  delete(data: string) {
     return this.http.delete<ResponceModel>(`${this.apiUrl}AutoService/Delete?id=${data}`);
   }
 
   getAllByUser(data: GetAll) {
-    return this.http.get<CarModel>(`${this.apiUrl}AutoService/GetAllAutoService?Pageindex=${data.PageIndex}&Size=${data.Size}UserId=${data.UserId}`);
+    return this.http.get<CarModel[]>(`${this.apiUrl}AutoService/GetAllAutoService?Pageindex=${data.PageIndex}&Size=${data.Size}UserId=${data.UserId}`);
   }
 
 }

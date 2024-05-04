@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../../environments/environment.development';
+import { environment } from '../../../../../environments/environment';
 import { CreateCarRecordCommand } from '../../../models/models/CarModels/CreateCarRecordCommand';
 import { ResponceModel } from '../../../models/models/ResponceModels/responcemodel';
 import { DeleteCarRecordCommand } from '../../../models/models/CarModels/DeleteCarRecordCommand';
@@ -20,11 +20,11 @@ export class CarRecordService {
     return this.http.post<ResponceModel>(this.baseUrl + `CreateCarRecord`, data)
   }
 
-  Delete(id: number){
+  Delete(id: string){
     return this.http.delete<ResponceModel>(this.baseUrl + `DeleteCarRecord?id=${id}`)
   }
 
   GetAllByCar(data: GetAll){
-    return this.http.get<CarRecordModel>(this.baseUrl + `GetAllCarRecord?CarId=${data.CarId}`)
+    return this.http.get<CarRecordModel[]>(this.baseUrl + `GetAllCarRecord?CarId=${data.CarId}`)
   }
 }

@@ -20,11 +20,11 @@ export class AutoserviceService {
     return this.http.post<ResponceModel>(`${this.apiUrl}AutoService/Create`, data);
   }
 
-  delete(data: number) {
+  delete(data: string) {
     return this.http.delete<ResponceModel>(`${this.apiUrl}AutoService/Delete?id=${data}`);
   }
 
   getAll(data: GetAll) {
-    return this.http.get<AutoServiceModel>(`${this.apiUrl}AutoService/GetAllAutoService?Pageindex=${data.PageIndex}&Size=${data.Size}`);
+    return this.http.get<AutoServiceModel[]>(`${this.apiUrl}AutoService/GetAllAutoService?Pageindex=${data.PageIndex}&Size=${data.Size}`);
   }
 }
