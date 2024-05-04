@@ -12,7 +12,7 @@ import { CarRecordModel } from '../../../models/models/CarModels/CarRecord';
 })
 export class CarRecordService {
 
-  private baseUrl = environment.apiUrl;
+  private baseUrl = environment.apiUrl + 'CarRecord/';
 
   constructor(private http: HttpClient) { }
 

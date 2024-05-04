@@ -12,24 +12,24 @@ import { CarModel } from '../../../models/models/CarModels/CarModel';
 })
 export class CarService {
 
-  private apiUrl = environment.apiUrl;
+  private apiUrl = environment.apiUrl + 'Car/';
 
   constructor(private http: HttpClient) { }
 
   create(data: CreateCarCommand) {
-    return this.http.post<ResponceModel>(`${this.apiUrl}AutoService/Create`, data);
+    return this.http.post<ResponceModel>(`${this.apiUrl}CreateCar`, data);
   }
 
   update(data: UpdateCarCommand) {
-    return 
+    return this.http.put<ResponceModel>(`${this.apiUrl}UpdateCar`, data);
   }
 
   delete(data: string) {
-    return this.http.delete<ResponceModel>(`${this.apiUrl}AutoService/Delete?id=${data}`);
+    return this.http.delete<ResponceModel>(`${this.apiUrl}DeleteCar?id=${data}`);
   }
 
   getAllByUser(data: GetAll) {
-    return this.http.get<CarModel[]>(`${this.apiUrl}AutoService/GetAllAutoService?Pageindex=${data.PageIndex}&Size=${data.Size}UserId=${data.UserId}`);
+    return this.http.get<CarModel[]>(`${this.apiUrl}GetAllCars?Pageindex=${data.PageIndex}&Size=${data.Size}UserId=${data.UserId}`);
   }
 
 }

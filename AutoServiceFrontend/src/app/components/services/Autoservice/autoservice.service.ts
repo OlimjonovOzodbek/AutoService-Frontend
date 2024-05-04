@@ -12,12 +12,12 @@ import { CreateAutoServiceCommand } from '../../models/models/AutoServiceModels/
 })
 export class AutoserviceService {
 
-  private apiUrl = environment.apiUrl; // Marked as private if not used outside
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   create(data: CreateAutoServiceCommand) {
-    return this.http.post<ResponceModel>(`${this.apiUrl}AutoService/Create`, data);
+    return this.http.post<ResponceModel>(`${this.apiUrl}AutoService/CreateAutoService`, data);
   }
 
   delete(data: string) {

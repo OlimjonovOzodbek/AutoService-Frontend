@@ -1,10 +1,11 @@
-import { UpdtateService } from '../../models/models/ServiceModels/ServiceModels/UpdtateService';
+import { UpdtateService } from '../../../models/models/ServiceModels/ServiceModels/UpdtateService';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../environments/environment.development';
+import { environment } from '../../../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
-import { CreateService } from '../../models/models/ServiceModels/ServiceModels/CreateService';
-import { ResponceModel } from '../../models/models/ResponceModels/responcemodel';
-import { ServiceModel } from '../../models/models/ServiceModels/ServiceModels/ServiceModel';
+import { CreateService } from '../../../models/models/ServiceModels/ServiceModels/CreateService';
+import { ResponceModel } from '../../../models/models/ResponceModels/responcemodel';
+import { ServiceModel } from '../../../models/models/ServiceModels/ServiceModels/ServiceModel';
+import { GetAll } from '../../../models/viewmodels/getAllOnlyByPage';
 
 @Injectable({
   providedIn: 'root',
@@ -33,9 +34,9 @@ export class ServiceService {
     );
   }
 
-  getAll(date: number, date2: number) {
+  getAll(data: GetAll) {
     return this.http.get<ServiceModel[]>(
-      `${this.apiUrl}Service/GetAllService?PageIndex=${date}&Size=${date2}`
+      `${this.apiUrl}Service/GetAllService?PageIndex=${data.PageIndex}&Size=${data.Size}`
     );
   }
 }
