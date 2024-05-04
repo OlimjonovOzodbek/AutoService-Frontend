@@ -8,4 +8,5 @@ export class CarSeatCategoryService {
 
   private apiUrl = environment
   constructor() { }
+  
 }
