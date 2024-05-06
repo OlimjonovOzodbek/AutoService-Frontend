@@ -1,0 +1,39 @@
+<h1>Auto Services</h1>
+<ul>
+  <li *ngFor="let service of autoServices">{{ service.name }}</li>
+</ul>
+<button (click)="loadAutoServices({PageIndex: 1, Size: 10})">Refresh List</button>
+
+<form (ngSubmit)="createAutoService()">
+  <div class="form-group">
+      <label for="id">Company ID</label>
+      <input type="text" class="form-control" id="id" placeholder="Enter ID" [(ngModel)]="setValue.Id" name="id">
+  </div>
+
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input type="text" class="form-control" id="location" placeholder="Enter location" [(ngModel)]="setValue.Location" name="location">
+  </div>
+
+  <div class="form-group">
+    <label for="websitePath">Website Path</label>
+    <input type="text" class="form-control" id="websitePath" placeholder="Enter website path" [(ngModel)]="setValue.WebsitePath" name="websitePath">
+  </div>
+
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number</label>
+    <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number" [(ngModel)]="setValue.PhoneNumber" name="phoneNumber">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="setValue.Email" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="serviceId">Service ID</label>
+    <input type="text" class="form-control" id="serviceId" placeholder="Enter service ID" (change)="setValue.ServiceId = $event.target.value.split(',')" name="serviceId">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button> 
+</form>

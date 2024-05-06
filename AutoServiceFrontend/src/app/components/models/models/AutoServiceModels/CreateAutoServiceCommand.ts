@@ -3,5 +3,6 @@ export interface CreateAutoServiceCommand{
     Location: string,
     WebsitePath: string,
     PhoneNumber: string,
-    Email: string
+    Email: string,
+    ServiceId: string[]
 }
